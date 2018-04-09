@@ -50,9 +50,6 @@ function IsInjected($str) {
 if(IsInjected($email)) {
     $errorMSG .= "Bad email value!";
 }
-if(IsInjected($subject)) {
-    $errorMSG .= "Bad subject value!";
-}
 if(IsInjected($message)) {
     $errorMSG .= "Bad message value!";
 }
@@ -61,8 +58,9 @@ if(IsInjected($name)) {
 }
 
 
-$EmailTo = "sachinnaidoo@hotmail.com";
+$EmailTo = "david@vortechs.co.za";
 $Subject = "Vortechs: New Customer Query"; 
+
 // prepare email body text
 $Body = "";
 $Body .= "Name: ";
@@ -72,14 +70,14 @@ $Body .= "Email: ";
 $Body .= $email;
 $Body .= "\n";
 $Body .= "Subject: ";
-$Body .= $subject;
+$Body .= $Subject;
 $Body .= "\n";
 $Body .= "Message: ";
 $Body .= $message;
 $Body .= "\n";
 
 // send email
-$success = mail($EmailTo, $subject, $Body, "From:".$email);
+$success = mail($EmailTo, $Subject, $Body, "From:".$email);
 
 // redirect to success page
 if ($success && $errorMSG == ""){
